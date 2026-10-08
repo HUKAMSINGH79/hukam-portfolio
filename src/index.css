@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #070b14;
+  --color-panel: #0d1424;
+  --color-line: #1d2740;
+  --color-accent: #38bdf8;
+  --color-accent2: #818cf8;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-ink); color: #cbd5e1; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+section[id] { scroll-margin-top: 5rem; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 6px; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; }
+}
+
+.bg-grid {
+  background-image: linear-gradient(to right, rgb(148 163 184 / .06) 1px, transparent 1px), linear-gradient(to bottom, rgb(148 163 184 / .06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 60% 30%, #000 20%, transparent 70%);
+}
